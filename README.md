@@ -56,7 +56,7 @@
 
     [Service] 
     User=root 
-    ExecStart= $HOME/avail-node/avail/target/release/data-avail --base-path $HOME/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9933 --prometheus-port 9615  --validator --name "mysticwho-node"
+    ExecStart=$HOME/avail-node/avail/target/release/data-avail --base-path $HOME/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9933 --prometheus-port 9615  --validator --name "mysticwho-node"
     Restart=always 
     RestartSec=120
 
@@ -176,7 +176,7 @@ Trong lệnh trên, hãy lưu ý các thông tin sau:
 
     [Service] 
     User=root 
-    ExecStart= $HOME/avail-node/avail/target/release/data-avail --base-path $HOME/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9933 --prometheus-port 9615  --validator --name "mysticwho-node"
+    ExecStart=$HOME/avail-node/avail/target/release/data-avail --base-path $HOME/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9933 --prometheus-port 9615  --validator --name "mysticwho-node"
     Restart=always 
     RestartSec=120
 
