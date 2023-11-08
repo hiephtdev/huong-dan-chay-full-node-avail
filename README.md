@@ -27,7 +27,7 @@
     git checkout v1.8.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
-
+    <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
     Đợi cho đến khi quá trình chạy hoàn tất, sau đó nhấn Ctrl + C.
 
 3. Tạo dịch vụ hệ thống để khởi động ổn định hơn:
@@ -72,6 +72,7 @@
     ```bash
     systemctl status availd.service
     ```
+<img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/service-status.png">
 
 6. Xem logs khi chạy bằng lệnh:
 
@@ -115,6 +116,7 @@ Trong lệnh trên, hãy lưu ý các thông tin sau:
 
 
 Để kiểm tra node của bạn, truy cập [https://telemetry.avail.tools/](https://telemetry.avail.tools/). Node của bạn sẽ được hiển thị sau khi hoàn tất quá trình đồng bộ và bắt đầu chạy.
+<img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/check-tool.png">
 
 ## Part 1: Using Binaries on Ubuntu 22.04
 
@@ -143,7 +145,7 @@ Trong lệnh trên, hãy lưu ý các thông tin sau:
     git checkout v1.8.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
-
+     <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
     Wait for the process to complete, then press Ctrl + C.
 
 3. Create a system service for more stable startup:
@@ -188,6 +190,7 @@ After editing, press Ctrl + O and then Enter, then press Ctrl + X to exit.
     ```bash
     systemctl status availd.service
     ```
+<img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/service-status.png">
 
 6. View logs while running with the following command:
 
@@ -229,4 +232,6 @@ In this step, make sure to replace `DA_NAME=goldberg-docker-avail-Node` with you
 
 
 To check your node, visit [https://telemetry.avail.tools/](https://telemetry.avail.tools/). Your node will be displayed after the synchronization process is complete and the node starts running.
+<img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/check-tool.png">
+
 
