@@ -1,6 +1,7 @@
 # Hướng dẫn chạy full node Avail - Avail Full Node Setup Guide (Vietnamese - English)
+## Vietnamese
 
-## Phần 1: Sử dụng Binaries trên Ubuntu 22.04
+### Phần 1: Sử dụng Binaries trên Ubuntu 22.04
 
 1. Cài đặt môi trường bằng cách sao chép và thực thi các lệnh dưới đây:
 
@@ -80,7 +81,7 @@
     journalctl -f -u availd
     ```
 
-## Phần 2: Sử dụng docker trên Ubuntu 22.04
+### Phần 2: Sử dụng docker trên Ubuntu 22.04
 
 1. Cài đặt docker chạy câu lệnh dưới đây
 
@@ -118,7 +119,9 @@ Trong lệnh trên, hãy lưu ý các thông tin sau:
 Để kiểm tra node của bạn, truy cập [https://telemetry.avail.tools/](https://telemetry.avail.tools/). Node của bạn sẽ được hiển thị sau khi hoàn tất quá trình đồng bộ và bắt đầu chạy.
 <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/check-tool.png">
 
-## Part 1: Using Binaries on Ubuntu 22.04
+
+## English
+### Part 1: Using Binaries on Ubuntu 22.04
 
 1. Set up the environment by copying and executing the following commands:
 
@@ -198,7 +201,7 @@ After editing, press Ctrl + O and then Enter, then press Ctrl + X to exit.
     journalctl -f -u availd
     ```
 
-## Part 2: Using Docker on Ubuntu 22.04
+### Part 2: Using Docker on Ubuntu 22.04
 
 1. Install Docker by running the following commands:
 
