@@ -245,4 +245,9 @@ In this step, make sure to replace `DA_NAME=goldberg-docker-avail-Node` with you
 To check your node, visit [https://telemetry.avail.tools/](https://telemetry.avail.tools/). Your node will be displayed after the synchronization process is complete and the node starts running.
 <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/check-tool.png">
 
+#### Supprort contact with me
+
+Telegram: [https://t.me/hthiep](https://t.me/hthiep)
+
+X: [https://twitter.com/hiepht_dev](https://twitter.com/hiepht_dev)
 
