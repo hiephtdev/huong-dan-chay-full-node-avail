@@ -1,4 +1,12 @@
 # Hướng dẫn chạy full node Avail - Avail Full Node Setup Guide (Vietnamese - English)
+## System Requirements
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| RAM | 4GB | 8GB |
+| CPU (amd64/x86 architecture) | 2 core | 	4 core |
+| Storage (SSD) | 20-40 GB | 200-300 GB |
+**OS Recommended Ubuntu 22.04**
+
 ## Vietnamese
 
 ### Phần 1: Sử dụng Binaries trên Ubuntu 22.04
