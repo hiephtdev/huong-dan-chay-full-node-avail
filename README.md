@@ -66,11 +66,11 @@
     ```
 
     Trong lệnh trên, hãy lưu ý các thông tin sau:
-    - `[HOME_PATH]` gõ lênh `$HOME` và copy đường dẫn thay thế vào `[HOME_PATH]` ở trên ví dụ như ảnh dưới thay thế `[HOME_PATH]` thành `/home/tuan` như vậy `[HOME_PATH]/avail-node/avail/target/release/data-avail` sẽ thành `/home/tuan/avail-node/avail/target/release/data-avail`
-    - `--name` là tên của node.
-   
+    - `[HOME_PATH]` gõ lệnh `$HOME` và copy đường dẫn thay thế vào `[HOME_PATH]` ở trên ví dụ như ảnh dưới thay thế `[HOME_PATH]` thành `/home/tuan` như vậy `[HOME_PATH]/avail-node/avail/target/release/data-avail` sẽ thành `/home/tuan/avail-node/avail/target/release/data-avail`, `[HOME_PATH]/avail-node/data` sẽ thành `/home/tuan/avail-node/data`
+        
        <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
        
+    - `--name` là tên của node.
     - Các cổng `30333`, `9933`, `9615` cần phải được mở trong tường lửa. Nếu bạn sử dụng VPS, hãy cấu hình cho phép kết nối TCP/UDP qua các cổng này.
 
     Sau khi chỉnh sửa xong, nhấn Ctrl + O và sau đó nhấn Enter, sau đó nhấn Ctrl + X để thoát.
@@ -190,12 +190,12 @@ Trong lệnh trên, hãy lưu ý các thông tin sau:
     WantedBy=multi-user.target
     ```
 
-    In the above command, please note the following information:
-    - `--name` is the name of the node.
-    -  `[HOME_PATH]` type the command $HOME and copy the path to replace in `[HOME_PATH]` above as shown in the example below. Replace `[HOME_PATH]` with `/home/tuan` like this: `[HOME_PATH]/avail-node/avail/target/release/data-avail` will become `/home/tuan/avail-node/avail/target/release/data-avail`.
+    In the above command, please note the following information:   
+    -  `[HOME_PATH]` type the command $HOME and copy the path to replace in `[HOME_PATH]` above as shown in the example below. Replace `[HOME_PATH]` with `/home/tuan` like this: `[HOME_PATH]/avail-node/avail/target/release/data-avail` will become `/home/tuan/avail-node/avail/target/release/data-avail`, `[HOME_PATH]/avail-node/data` will become `/home/tuan/avail-node/data`.
    
        <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
        
+    - `--name` is the name of the node.
     - Ports `30333, 9933, 9615` must be opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports.
 After editing, press Ctrl + O and then Enter, then press Ctrl + X to exit.
 
