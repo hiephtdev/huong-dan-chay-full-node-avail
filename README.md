@@ -46,7 +46,7 @@
     sudo nano /etc/systemd/system/availd.service
     ```
 
-    Then, paste the following command into the file:
+    Then, paste the following command into the file **(Change [HOME_PATH] in the command below before pasting it into the service. Please read more below)**:
 
     ```
     [Unit] 
@@ -71,7 +71,7 @@
        <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
        
     - `--name` is the name of the node.
-    - Ports `30333, 9933, 9615` must be opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports.
+    - Ports `30333, 9933, 9615` must be opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports. If you're using a VPS, please make sure the port is open from the provider's side.
 After editing, press Ctrl + O and then Enter, then press Ctrl + X to exit.
 
 5. Enable and start the service:
@@ -175,7 +175,7 @@ X: [https://twitter.com/hiepht_dev](https://twitter.com/hiepht_dev)
     sudo nano /etc/systemd/system/availd.service
     ```
 
-    Sau đó, dán lệnh sau vào tệp:
+    Sau đó, dán lệnh sau vào tệp (**Thay đổi [HOME_PATH] ở câu lệnh dưới trước khi paste vào service, vui lòng đọc thêm ở dưới**):
 
     ```
     [Unit] 
@@ -199,7 +199,7 @@ X: [https://twitter.com/hiepht_dev](https://twitter.com/hiepht_dev)
        <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
        
     - `--name` là tên của node.
-    - Các cổng `30333`, `9933`, `9615` cần phải được mở trong tường lửa. Nếu bạn sử dụng VPS, hãy cấu hình cho phép kết nối TCP/UDP qua các cổng này.
+    - Các cổng `30333`, `9933`, `9615` cần phải được mở trong tường lửa. Nếu bạn sử dụng VPS, hãy cấu hình cho phép kết nối TCP/UDP qua các cổng này. Nếu bạn sử dụng vps, vui lòng đảm bảo port phải được mở từ phía nhà cung cấp.
 
     Sau khi chỉnh sửa xong, nhấn Ctrl + O và sau đó nhấn Enter, sau đó nhấn Ctrl + X để thoát.
 
