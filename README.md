@@ -57,7 +57,7 @@
 
     [Service] 
     User=root
-    ExecStart=**[HOME_PATH]**/avail-node/avail/target/release/data-avail --base-path **[HOME_PATH]**/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9933 --prometheus-port 9615  --validator --name "mysticwho-node"
+    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path [HOME_PATH]/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9933 --prometheus-port 9615  --validator --name "mysticwho-node"
     Restart=always 
     RestartSec=120
 
