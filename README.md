@@ -123,7 +123,7 @@ mkdir -p $HOME/avail-node/data/state
 ```bash
 docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.8.0.0
 ```
-In this step, make sure to replace `DA_NAME=goldberg-docker-avail-Node` with your node's name. Also, ensure that ports `30333, 9933, 9615` are opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports.
+In this step, make sure to replace `DA_NAME=goldberg-docker-avail-Node` with your node's name. Also, ensure that ports `30333, 9944, 9615` are opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports.
 
 
 To check your node, visit [https://telemetry.avail.tools/](https://telemetry.avail.tools/). Your node will be displayed after the synchronization process is complete and the node starts running.
@@ -254,7 +254,7 @@ docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/
 ```
 Trong lệnh trên, hãy lưu ý các thông tin sau:
     - `DA_NAME` là tên của node.
-    - Các cổng `30333`, `9933`, `9615` cần phải được mở trong tường lửa. Nếu bạn sử dụng VPS, hãy cấu hình cho phép kết nối TCP/UDP qua các cổng này.
+    - Các cổng `30333`, `9944`, `9615` cần phải được mở trong tường lửa. Nếu bạn sử dụng VPS, hãy cấu hình cho phép kết nối TCP/UDP qua các cổng này.
 
 
 Để kiểm tra node của bạn, truy cập [https://telemetry.avail.tools/](https://telemetry.avail.tools/). Node của bạn sẽ được hiển thị sau khi hoàn tất quá trình đồng bộ và bắt đầu chạy.
