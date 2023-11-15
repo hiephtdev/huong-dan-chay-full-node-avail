@@ -92,7 +92,23 @@ After editing, press Ctrl + O and then Enter, then press Ctrl + X to exit.
     ```bash
     journalctl -f -u availd
     ```
-
+7. Remove availd.service to recreate from scratch
+   - Run the command to stop and disable the running service
+   ```bash
+    systemctl stop availd.service && systemctl disable availd.service
+   ```
+   - Delete the service file in systemd
+   ```bash
+    rm /etc/systemd/system/availd.service
+   ```
+   - Reload systemd
+   ```bash
+    systemctl daemon-reload && systemctl reset-failed 
+   ```
+8. In the event of updating the availd.service file, run the following command to reload the service:
+```bash
+systemctl daemon-reload to
+```
 ### Part 2: Using Docker on Ubuntu 22.04
 
 1. Install Docker by running the following commands:
@@ -221,7 +237,23 @@ X: [https://twitter.com/hiepht_dev](https://twitter.com/hiepht_dev)
     ```bash
     journalctl -f -u availd
     ```
-
+7. Xóa availd.service để tạo lại từ đầu
+    - Chạy lệnh để stop và disable service đang chạy
+   ```bash
+   systemctl stop availd.service && systemctl disable availd.service
+   ``` 
+    - Xóa file service trong systemd
+   ```bash
+    rm /etc/systemd/system/availd.service
+   ```
+    - Reload systemd
+   ```bash
+    systemctl daemon-reload && systemctl reset-failed
+   ```
+8. Trong trường hợp update lại file availd.service chạy lệnh sau để reload lại service
+```bash
+systemctl daemon-reload
+```
 ### Phần 2: Sử dụng docker trên Ubuntu 22.04
 
 1. Cài đặt docker chạy câu lệnh dưới đây
