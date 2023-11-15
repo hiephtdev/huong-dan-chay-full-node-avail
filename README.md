@@ -33,7 +33,7 @@
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.8.0.0 &&
+    git checkout v1.8.0.2 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
      <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
@@ -178,7 +178,7 @@ X: [https://twitter.com/hiepht_dev](https://twitter.com/hiepht_dev)
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.8.0.0 &&
+    git checkout v1.8.0.2 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
     <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
