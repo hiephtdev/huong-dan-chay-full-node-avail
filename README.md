@@ -107,7 +107,7 @@ After editing, press Ctrl + O and then Enter, then press Ctrl + X to exit.
    ```
 8. In the event of updating the availd.service file, run the following command to reload the service:
 ```bash
-systemctl daemon-reload to
+systemctl daemon-reload
 ```
 ### Part 2: Using Docker on Ubuntu 22.04
 
