@@ -6,7 +6,7 @@
 | CPU (amd64/x86 architecture) | 2 core | 	4 core |
 | Storage (SSD) | 20-40 GB | 200-300 GB |
 **OS Recommended Ubuntu 22.04**
-## Update 21/11/2323
+## Update 11/21/2023
 Run full node v1.8.2 with one command
 ```bash
 curl -s https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-full-node.sh | bash
