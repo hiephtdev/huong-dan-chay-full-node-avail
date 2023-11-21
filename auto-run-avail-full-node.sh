@@ -65,7 +65,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which data-avail) -d `pwd`/data --chain goldberg --port $AVAIL_P2P_PORT --rpc-port $AVAIL_RPC_PORT --prometheus-port $AVAIL_PROMETHEUS_PORT --validator --name $AVAIL_NODE_NAME
+ExecStart=$(which data-avail) -d `pwd`/data --chain goldberg --port $AVAIL_P2P_PORT --rpc-port $AVAIL_RPC_PORT --rpc-cors=all --rpc-external --rpc-methods=unsafe --prometheus-port $AVAIL_PROMETHEUS_PORT --prometheus-external --validator --name $AVAIL_NODE_NAME
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
