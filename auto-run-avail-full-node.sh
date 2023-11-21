@@ -11,17 +11,16 @@ echo -e "\e[0m"
 sleep 2;
 # set vars
 AVAIL_TAG="v1.8.0.2"
-if [ ! $AVAIL_NODE_NAME ]; then
+if [ -z "$AVAIL_NODE_NAME" ]; then
 	read -p "Enter node name: " AVAIL_NODE_NAME
-	echo "export AVAIL_NODE_NAME=$AVAIL_NODE_NAME" >> ~/.bash_profile
 fi
 
-source ~/.bash_profile
-echo '================================================='
+. ~/.bash_profile
+echo -e '================================================='
 echo -e "Your node name: \e[1;33m$AVAIL_NODE_NAME\e[0m"
-echo -e "Your p2p port: \e[1;33m$AVAIL_P2P_PORT\e[0m"
-echo -e "Your rpc port: \e[1;33m$AVAIL_RPC_PORT\e[0m"
-echo -e "Your prometheus port: \e[1;33m$AVAIL_PROMETHEUS_PORT\e[0m"
+echo -e "Your p2p port: \e[1;33m30333\e[0m"
+echo -e "Your rpc port: \e[1;33m9944\e[0m"
+echo -e "Your prometheus port: \e[1;33m9615\e[0m"
 echo '================================================='
 sleep 2;
 echo -e "\e[1;33m1. Updating packages... \e[0m" && sleep 1;
