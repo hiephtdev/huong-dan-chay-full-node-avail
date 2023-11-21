@@ -9,7 +9,7 @@
 ## Update 11/21/2023
 Run full node v1.8.2 with one command
 ```bash
-curl -s https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-full-node.sh | bash
+bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-full-node.sh)
 ```
 ## English
 ### Part 1: Using Binaries on Ubuntu 22.04
