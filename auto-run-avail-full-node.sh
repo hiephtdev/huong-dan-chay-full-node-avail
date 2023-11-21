@@ -7,9 +7,7 @@ echo "   | |\  /| |  \   /    \___ \     | |     | |   | |        \ \/  \/ /  | 
 echo "   | | \/ | |   | |     ____) |    | |    _| |_  | |____     \  /\  /   | |  | | | |__| |"
 echo "   |_|    |_|   |_|    |_____/     |_|   |_____|  \_____|     \/  \/    |_|  |_|  \____/ "
 echo -e "\e[0m"
-
 sleep 2
-
 # set vars
 AVAIL_P2P_PORT=30333
 AVAIL_RPC_PORT=9944
@@ -30,7 +28,6 @@ echo -e "Your rpc port: \e[1;33m$AVAIL_RPC_PORT\e[0m"
 echo -e "Your prometheus port: \e[1;33m$AVAIL_PROMETHEUS_PORT\e[0m"
 echo '================================================='
 sleep 2
-
 echo -e "\e[1;33m1. Updating packages... \e[0m" && sleep 1
 # update
 sudo apt update && sudo apt upgrade -y
@@ -47,7 +44,6 @@ rustup update
 rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 sleep 1
-
 echo -e "\e[1;33m3. Download and build binaries... \e[0m" && sleep 1
 # download binary
 git clone https://github.com/availproject/avail.git
