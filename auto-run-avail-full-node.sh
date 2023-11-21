@@ -10,27 +10,13 @@ echo "   |_|    |_|   |_|    |_____/     |_|   |_____|  \_____|     \/  \/    |_
 echo -e "\e[0m"
 sleep 2;
 # set vars
-AVAIL_P2P_PORT=30333
-AVAIL_RPC_PORT=9944
-AVAIL_PROMETHEUS_PORT=9615
 AVAIL_TAG="v1.8.0.2"
 if [ ! $AVAIL_NODE_NAME ]; then
 	read -p "Enter node name: " AVAIL_NODE_NAME
-	echo "export AVAIL_NODE_NAME=$AVAIL_NODE_NAME" >> $HOME/.bash_profile
+	echo "export AVAIL_NODE_NAME=$AVAIL_NODE_NAME" >> ~/.bash_profile
 fi
 
-if [ ! $AVAIL_P2P_PORT ]; then
-	echo "export AVAIL_P2P_PORT=${AVAIL_P2P_PORT}" >> $HOME/.bash_profile
-fi
-
-if [ ! $AVAIL_RPC_PORT ]; then
-	echo "export AVAIL_RPC_PORT=${AVAIL_RPC_PORT}" >> $HOME/.bash_profile
-fi
-
-if [ ! $AVAIL_PROMETHEUS_PORT ]; then
-	echo "export AVAIL_PROMETHEUS_PORT=${AVAIL_PROMETHEUS_PORT}" >> $HOME/.bash_profile
-fi
-source $HOME/.bash_profile
+source ~/.bash_profile
 echo '================================================='
 echo -e "Your node name: \e[1;33m$AVAIL_NODE_NAME\e[0m"
 echo -e "Your p2p port: \e[1;33m$AVAIL_P2P_PORT\e[0m"
@@ -71,7 +57,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which data-avail) -d `pwd`/data --chain goldberg --port $AVAIL_P2P_PORT --rpc-port $AVAIL_RPC_PORT --rpc-cors=all --rpc-external --rpc-methods=unsafe --prometheus-port $AVAIL_PROMETHEUS_PORT --prometheus-external --validator --name $AVAIL_NODE_NAME
+ExecStart=$(which data-avail) -d `pwd`/data --chain goldberg --port 30333 --rpc-port 9944 --rpc-cors=all --rpc-external --rpc-methods=unsafe --prometheus-port 9615 --prometheus-external --validator --name $AVAIL_NODE_NAME
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
