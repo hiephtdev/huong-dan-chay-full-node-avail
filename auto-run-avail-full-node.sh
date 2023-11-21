@@ -7,7 +7,7 @@ echo "   | |\  /| |  \   /    \___ \     | |     | |   | |        \ \/  \/ /  | 
 echo "   | | \/ | |   | |     ____) |    | |    _| |_  | |____     \  /\  /   | |  | | | |__| |"
 echo "   |_|    |_|   |_|    |_____/     |_|   |_____|  \_____|     \/  \/    |_|  |_|  \____/ "
 echo -e "\e[0m"
-sleep 2
+sleep 2;
 # set vars
 AVAIL_P2P_PORT=30333
 AVAIL_RPC_PORT=9944
@@ -27,12 +27,12 @@ echo -e "Your p2p port: \e[1;33m$AVAIL_P2P_PORT\e[0m"
 echo -e "Your rpc port: \e[1;33m$AVAIL_RPC_PORT\e[0m"
 echo -e "Your prometheus port: \e[1;33m$AVAIL_PROMETHEUS_PORT\e[0m"
 echo '================================================='
-sleep 2
-echo -e "\e[1;33m1. Updating packages... \e[0m" && sleep 1
+sleep 2;
+echo -e "\e[1;33m1. Updating packages... \e[0m" && sleep 1;
 # update
 sudo apt update && sudo apt upgrade -y
 
-echo -e "\e[1;33m2. Installing dependencies... \e[0m" && sleep 1
+echo -e "\e[1;33m2. Installing dependencies... \e[0m" && sleep 1;
 # packages
 sudo apt install curl tar wget clang pkg-config protobuf-compiler libssl-dev jq build-essential protobuf-compiler bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y
 
@@ -43,8 +43,8 @@ rustup default stable
 rustup update
 rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
-sleep 1
-echo -e "\e[1;33m3. Download and build binaries... \e[0m" && sleep 1
+sleep 1;
+echo -e "\e[1;33m3. Download and build binaries... \e[0m" && sleep 1;
 # download binary
 git clone https://github.com/availproject/avail.git
 cd avail
@@ -70,7 +70,7 @@ LimitNOFILE=65535
 WantedBy=multi-user.target
 EOF
 
-echo -e "\e[1;33m4. Starting service... \e[0m" && sleep 1
+echo -e "\e[1;33m4. Starting service... \e[0m" && sleep 1;
 # start service
 sudo systemctl daemon-reload
 sudo systemctl enable availd
