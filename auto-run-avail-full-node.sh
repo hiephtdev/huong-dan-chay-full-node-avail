@@ -11,7 +11,8 @@ echo -e "\e[0m"
 sleep 2;
 # set vars
 AVAIL_TAG="v1.8.0.2"
-	read -p "Enter node name: " AVAIL_NODE_NAME
+echo -n "Enter node name: "
+	read AVAIL_NODE_NAME
 	echo 'export AVAIL_NODE_NAME='$AVAIL_NODE_NAME >> $HOME/.bash_profile
 source ~/.bash_profile
 echo -e '================================================='
