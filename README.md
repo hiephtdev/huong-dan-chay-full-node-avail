@@ -155,6 +155,8 @@ Telegram: [https://t.me/hthiep](https://t.me/hthiep)
 
 X: [https://twitter.com/hiepht_dev](https://twitter.com/hiepht_dev)
 
+Discord: hiepht
+
 ## Vietnamese
 
 ### Phần 1: Sử dụng Binaries trên Ubuntu 22.04
@@ -301,5 +303,7 @@ Trong lệnh trên, hãy lưu ý các thông tin sau:
 Telegram: [https://t.me/hthiep](https://t.me/hthiep)
 
 X: [https://twitter.com/hiepht_dev](https://twitter.com/hiepht_dev)
+
+Discord: hiepht
 
 
