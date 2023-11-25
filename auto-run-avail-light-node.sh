@@ -35,8 +35,8 @@ if [[ $answer == "y" ]]; then
     # Ghi văn bản vào file identity.toml
     echo "avail_secret_seed_phrase = '$text'" > identity.toml
     echo "Save seed phrase to identity.toml"
-elif [[ $answer == "no" ]]; then
-    echo "Start generates a new keypair and saves the seed phrase to identity.toml file"
+elif [[ $answer == "n" ]]; then
+    echo "Start with seed phrase to identity.toml file"
 else
     echo "Invalid input. Please enter 'y' or 'n'."
 fi
@@ -47,7 +47,7 @@ FOLDER_PATH="$HOME/avail-light"
 if [ ! -d "$FOLDER_PATH" ]; then
     mkdir -p "$FOLDER_PATH"
 fi
-cd FOLDER_PATH
+cd $FOLDER_PATH
 wget https://github.com/availproject/avail-light/releases/download/v1.7.4/avail-light-linux-amd64.tar.gz
 tar -xvzf avail-light-linux-amd64.tar.gz
 # create service
