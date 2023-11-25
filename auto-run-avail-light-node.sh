@@ -34,11 +34,11 @@ if [[ $answer == "y" ]]; then
 
     # Ghi văn bản vào file identity.toml
     echo "avail_secret_seed_phrase = '$text'" > identity.toml
-    echo "Save seed phrase to identity.toml"
+    echo "\e[1;33mSave seed phrase to identity.toml\e[0m"
 elif [[ $answer == "n" ]]; then
-    echo "It will create a new key if it doesn't exist on this machine to identity.toml file"
+    echo "\e[1;33mIt will create a new key if it doesn't exist on this machine to identity.toml file\e[0m"
 else
-    echo "Invalid input. Please enter 'y' or 'n'."
+    echo "\e[31mInvalid input. Please enter 'y' or 'n'.\e[0m"
 fi
 
 echo -e "\e[1;33m3. Downloading... \e[0m" && sleep 1
