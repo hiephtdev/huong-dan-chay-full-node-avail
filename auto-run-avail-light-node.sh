@@ -21,6 +21,7 @@ echo -e "\e[1;33m3. Downloading... \e[0m" && sleep 1
 # download binary
 cd $HOME
 mkdir avail-light
+cd avail-light
 wget https://github.com/availproject/avail-light/releases/download/v1.7.4/avail-light-linux-amd64.tar.gz
 tar -xvzf avail-light-linux-amd64.tar.gz
 # create service
