@@ -57,7 +57,7 @@ Description=Avail Light Client
 After=network-online.target
 
 [Service]
-User=$USER
+User=root
 ExecStart=$FOLDER_PATH/avail-light-linux-amd64 --network goldberg
 Restart=on-failure
 RestartSec=3
