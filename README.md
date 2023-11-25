@@ -6,6 +6,11 @@
 | CPU (amd64/x86 architecture) | 2 core | 	4 core |
 | Storage (SSD) | 20-40 GB | 200-300 GB |
 **OS Recommended Ubuntu 22.04**
+## Update 11/25/2023
+Run Light Node v1.7.4 with one command
+```bash
+bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-light-node.sh)"
+```
 ## Update 11/21/2023
 Run full node v1.8.2 with one command
 ```bash
@@ -28,7 +33,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
     rustup target add wasm32-unknown-unknown --toolchain nightly
     ```
 
-2. Build the latest version of the Avail project (v1.8.0.0):
+2. Build the latest version of the Avail project (v1.8.0.2):
 
     ```bash
     mkdir -p $HOME/avail-node &&
@@ -175,7 +180,7 @@ Discord: hiepht
     rustup target add wasm32-unknown-unknown --toolchain nightly
     ```
 
-2. Xây dựng phiên bản mới nhất của dự án Avail (v1.8.0.0):
+2. Xây dựng phiên bản mới nhất của dự án Avail (v1.8.0.2):
 
     ```bash
     mkdir -p $HOME/avail-node &&
