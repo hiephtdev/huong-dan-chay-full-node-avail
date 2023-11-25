@@ -36,7 +36,7 @@ if [[ $answer == "y" ]]; then
     echo "avail_secret_seed_phrase = '$text'" > identity.toml
     echo "Save seed phrase to identity.toml"
 elif [[ $answer == "n" ]]; then
-    echo "Start with seed phrase to identity.toml file"
+    echo "It will create a new key if it doesn't exist on this machine to identity.toml file"
 else
     echo "Invalid input. Please enter 'y' or 'n'."
 fi
