@@ -17,6 +17,30 @@ echo -e "\e[1;33m2. Installing dependencies... \e[0m" && sleep 1
 # packages
 sudo apt install curl tar wget clang pkg-config protobuf-compiler libssl-dev jq build-essential protobuf-compiler bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y
 
+read -p "Do you want to enter seed phrase? (y/n): " answer
+
+# Kiểm tra câu trả lời
+if [[ $answer == "y" ]]; then
+    # Hỏi người dùng nhập văn bản
+    read -p "Enter the text: " text
+
+    # Kiểm tra xem file identity.toml đã tồn tại chưa
+    if [[ -f "identity.toml" ]]; then
+        echo "identity.toml exists. Creating backup..."
+        cp identity.toml identity_backup.toml
+        echo "Backup created as identity_backup.toml"
+        rm identity.toml
+    fi
+
+    # Ghi văn bản vào file identity.toml
+    echo "avail_secret_seed_phrase = '$text'" > identity.toml
+    echo "Save seed phrase to identity.toml"
+elif [[ $answer == "no" ]]; then
+    echo "Start generates a new keypair and saves the seed phrase to identity.toml file"
+else
+    echo "Invalid input. Please enter 'y' or 'n'."
+fi
+
 echo -e "\e[1;33m3. Downloading... \e[0m" && sleep 1
 # download binary
 FOLDER_PATH="$HOME/avail-light"
@@ -56,3 +80,4 @@ echo -e "\e[1;33mStop your Avail node, use: sudo systemctl stop availightd\e[0m"
 echo -e "\e[1;33mStart your Avail node, enter: sudo systemctl start availightd\e[0m"
 echo -e "\e[1;33mAfter modifying the availd.service file, reload the service using: sudo systemctl daemon-reload\e[0m"
 echo -e "\e[1;33mRestart the service, use: sudo systemctl restart availightd\e[0m"
+echo -e "\e[31mPlease download the identity.toml file from the root directory to your computer to back up the seed phrase\e[0m"
