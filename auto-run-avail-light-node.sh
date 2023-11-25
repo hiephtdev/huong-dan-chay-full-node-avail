@@ -19,9 +19,11 @@ sudo apt install curl tar wget clang pkg-config protobuf-compiler libssl-dev jq 
 
 echo -e "\e[1;33m3. Downloading... \e[0m" && sleep 1
 # download binary
-cd $HOME
-mkdir avail-light
-cd avail-light
+FOLDER_PATH="$HOME/avail-light"
+if [ ! -d "$FOLDER_PATH" ]; then
+    mkdir -p "$FOLDER_PATH"
+fi
+
 wget https://github.com/availproject/avail-light/releases/download/v1.7.4/avail-light-linux-amd64.tar.gz
 tar -xvzf avail-light-linux-amd64.tar.gz
 # create service
@@ -32,7 +34,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$HOME/avail-light/avail-light-linux-amd64 --network goldberg
+ExecStart=$FOLDER_PATH/avail-light-linux-amd64 --network goldberg
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
