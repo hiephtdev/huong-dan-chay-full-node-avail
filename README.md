@@ -65,7 +65,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
 
     [Service] 
     User=root 
-    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path [HOME_PATH]/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9944 --prometheus-port 9615 --ws-port 9944 --ws-external --prometheus-external --validator --name "mysticwho-node"
+    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path [HOME_PATH]/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name "mysticwho-node"
     Restart=always 
     RestartSec=120
 
@@ -212,7 +212,7 @@ Discord: hiepht
 
     [Service] 
     User=root
-    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path [HOME_PATH]/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9944 --prometheus-port 9615 --prometheus-external --ws-port 9944 --ws-external --validator --name "mysticwho-node"
+    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path [HOME_PATH]/avail-node/data --chain goldberg --port 30333  --rpc-cors=all --rpc-external --rpc-methods=unsafe --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name "mysticwho-node"
     Restart=always 
     RestartSec=120
 
