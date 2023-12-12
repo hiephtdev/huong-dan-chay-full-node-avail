@@ -56,7 +56,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which data-avail) -d `pwd`/data --chain goldberg --port 30333 --rpc-port 9944 --rpc-cors=all --rpc-external --rpc-methods=unsafe --prometheus-port 9615 --prometheus-external --ws-port 9944 --ws-external --validator --name $AVAIL_NODE_NAME
+ExecStart=$(which data-avail) -d `pwd`/data --chain goldberg --port 30333 --rpc-port 9944 --rpc-external --prometheus-port 9615 --prometheus-external --validator --name $AVAIL_NODE_NAME
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
