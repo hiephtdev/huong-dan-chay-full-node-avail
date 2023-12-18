@@ -12,7 +12,7 @@ Run Light Node v1.7.4 with one command
 bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-light-node.sh)"
 ```
 ## Update 11/21/2023
-Run full node v1.8.3 with one command
+Run full node v1.8.0.4 with one command
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-full-node.sh)
 ```
@@ -42,7 +42,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.8.0.3 &&
+    git checkout v1.8.0.4 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
      <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
@@ -189,7 +189,7 @@ Discord: hiepht
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.8.0.3 &&
+    git checkout v1.8.0.4 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
     <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
