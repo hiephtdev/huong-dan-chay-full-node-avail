@@ -10,7 +10,7 @@ echo "   |_|    |_|   |_|    |_____/     |_|   |_____|  \_____|     \/  \/    |_
 echo -e "\e[0m"
 sleep 2;
 # set vars
-AVAIL_TAG="v1.8.0.5"
+AVAIL_TAG="v1.9.0.0"
 if [ ! $AVAIL_NODE_NAME ]; then
 	read -p "Enter node name: " AVAIL_NODE_NAME
 	echo 'export AVAIL_NODE_NAME='$AVAIL_NODE_NAME >> $HOME/.bash_profile
