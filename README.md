@@ -42,7 +42,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.8.0.5 &&
+    git checkout v1.9.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
      <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
@@ -189,7 +189,7 @@ Discord: hiepht
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.8.0.5 &&
+    git checkout v1.9.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
     <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
