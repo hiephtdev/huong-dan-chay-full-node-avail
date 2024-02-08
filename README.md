@@ -11,8 +11,8 @@ Run Light Node v1.7.4 with one command
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-light-node.sh)"
 ```
-## Update 11/21/2023
-Run full node v1.8.0.4 with one command
+## Update 02/08/2024
+Run full node v1.10.0.0 with one command
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-full-node.sh)
 ```
@@ -33,7 +33,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
     rustup target add wasm32-unknown-unknown --toolchain nightly
     ```
 
-2. Build the latest version of the Avail project (v1.8.0.3):
+2. Build the latest version of the Avail project (v1.10.0.0):
 
     ```bash
     mkdir -p $HOME/avail-node &&
@@ -42,7 +42,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.9.0.0 &&
+    git checkout v1.10.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
      <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
@@ -146,7 +146,7 @@ mkdir -p $HOME/avail-node/data/state
 ```
 3. Run the Docker container:
 ```bash
-docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.9.0.0
+docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.10.0.0
 ```
 In this step, make sure to replace `DA_NAME=goldberg-docker-avail-Node` with your node's name. Also, ensure that ports `30333, 9944, 9615` are opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports.
 
@@ -180,7 +180,7 @@ Discord: hiepht
     rustup target add wasm32-unknown-unknown --toolchain nightly
     ```
 
-2. Xây dựng phiên bản mới nhất của dự án Avail (v1.8.0.3):
+2. Xây dựng phiên bản mới nhất của dự án Avail (v1.10.0.0):
 
     ```bash
     mkdir -p $HOME/avail-node &&
@@ -189,7 +189,7 @@ Discord: hiepht
     cd avail &&
     mkdir -p output &&
     mkdir -p $HOME/avail-node/data &&
-    git checkout v1.9.0.0 &&
+    git checkout v1.10.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
     ```
     <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
@@ -293,7 +293,7 @@ mkdir -p $HOME/avail-node/data/state
 ```
 3. Chạy container
 ```bash
-docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.9.0.0
+docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.10.0.0
 ```
 Trong lệnh trên, hãy lưu ý các thông tin sau:
     - `DA_NAME` là tên của node.
