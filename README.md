@@ -11,8 +11,8 @@ Run Light Node v1.7.4 with one command
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-light-node.sh)"
 ```
-## Update 02/08/2024
-Run full node v1.10.0.0 with one command
+## Update 02/15/2024
+Run full node v1.11.0.0 with one command
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-full-node.sh)
 ```
