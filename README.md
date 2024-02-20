@@ -9,7 +9,7 @@
 ## Update 02/20/2024
 Run Light Node v1.7.8 with one command
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-light-node.sh)"
+bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-light-node.sh)
 ```
 ## Update 02/15/2024
 Run full node v1.11.0.0 with one command
