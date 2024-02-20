@@ -48,7 +48,7 @@ if [ ! -d "$FOLDER_PATH" ]; then
     mkdir -p "$FOLDER_PATH"
 fi
 cd $FOLDER_PATH
-wget https://github.com/availproject/avail-light/releases/download/v1.7.4/avail-light-linux-amd64.tar.gz
+wget https://github.com/availproject/avail-light/releases/download/v1.7.8/avail-light-linux-amd64.tar.gz
 tar -xvzf avail-light-linux-amd64.tar.gz
 # create service
 sudo tee /etc/systemd/system/availightd.service > /dev/null <<EOF
