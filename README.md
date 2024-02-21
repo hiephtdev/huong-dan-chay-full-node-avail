@@ -19,9 +19,8 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
 ## English
 ### Part 1: Using Binaries on Ubuntu 22.04
 
-1. Set up the environment by copying and executing the following commands:
-
-    ```bash
+#### 1. Set up the environment by copying and executing the following commands:
+```bash
     sudo apt-get -y update &&
     sudo apt-get -y install build-essential &&
     sudo apt-get -y install --assume-yes git clang curl libssl-dev protobuf-compiler && 
@@ -31,33 +30,40 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
     rustup update &&
     rustup update nightly && 
     rustup target add wasm32-unknown-unknown --toolchain nightly
-    ```
+ ```
 
-2. Build the latest version of the Avail project (v1.10.0.0):
+#### 2. Build the latest version of the Avail project (v1.11.0.0):
 
-    ```bash
+```bash
     mkdir -p $HOME/avail-node &&
     cd $HOME/avail-node &&
     git clone https://github.com/availproject/avail.git &&
     cd avail &&
     mkdir -p output &&
-    mkdir -p $HOME/avail-node/data &&
+    mkdir -p /mnt/avail-node/data/chains/avail_goldberg_testnet &&
     git checkout v1.11.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
-    ```
-     <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
-    Wait for the process to complete, then press Ctrl + C.
+```
 
-3. Create a system service for more stable startup (**Before creating the service, please read all the notes below, then proceed with the command**)
+<img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
 
-    ```bash
+**Wait for the process to complete, then press Ctrl + C.**
+
+#### 3. Copy snapshot data
+```bash
+    curl -o - -L http://snapshots.staking4all.org/snapshots/avail/latest/avail.tar.lz4 | lz4 -c -d - | tar -x -C /mnt/avail-node/data/chains/avail_goldberg_testnet/
+```
+
+#### 4. Create a system service for more stable startup (**Before creating the service, please read all the notes below, then proceed with the command**)
+
+```bash
     sudo touch /etc/systemd/system/availd.service
     sudo nano /etc/systemd/system/availd.service
-    ```
+```
 
-    Then, paste the following command into the file **(Change [HOME_PATH] in the command below before pasting it into the service. Please read more below)**:
+Then, paste the following command into the file **(Change [HOME_PATH] in the command below before pasting it into the service. Please read more below)**:
 
-    ```
+```bash
     [Unit] 
     Description=Avail Validator
     After=network.target
@@ -65,62 +71,62 @@ bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full
 
     [Service] 
     User=root 
-    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path [HOME_PATH]/avail-node/data --chain goldberg --port 30333 --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name "mysticwho-node"
+    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path /mnt/avail-node/data --chain goldberg --port 30333 --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name "mysticwho-node"
     Restart=always 
     RestartSec=120
 
     [Install] 
     WantedBy=multi-user.target
-    ```
+```
 
-    **In the above command, please note the following information:**
+**In the above command, please note the following information:**
    
-    -  `[HOME_PATH]` type the command $HOME and copy the path to replace in `[HOME_PATH]` above as shown in the example below. Replace `[HOME_PATH]` with `/home/tuan` like this: `[HOME_PATH]/avail-node/avail/target/release/data-avail` will become `/home/tuan/avail-node/avail/target/release/data-avail`, `[HOME_PATH]/avail-node/data` will become `/home/tuan/avail-node/data`.
+-  `[HOME_PATH]` type the command $HOME and copy the path to replace in `[HOME_PATH]` above as shown in the example below. Replace `[HOME_PATH]` with `/home/tuan` like this: `[HOME_PATH]/avail-node/avail/target/release/data-avail` will become `/home/tuan/avail-node/avail/target/release/data-avail`, `[HOME_PATH]/avail-node/data` will become `/home/tuan/avail-node/data`.
    
-       <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
+  <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
        
-    - `--name` is the name of the node.
-    - Ports `30333, 9944, 9615` must be opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports. If you're using a VPS, please make sure the port is open from the provider's side.
+- `--name` is the name of the node.
+- Ports `30333, 9944, 9615` must be opened in the firewall. If you are using a VPS, configure it to allow TCP/UDP connections through these ports. If you're using a VPS, please make sure the port is open from the provider's side.
 After editing, press Ctrl + O and then Enter, then press Ctrl + X to exit.
 
-5. Enable and start the service:
+#### 5. Enable and start the service:
 
-    ```bash
+```bash
     systemctl enable availd.service && systemctl start availd.service
-    ```
+```
 
-6. Check the service status:
+#### 6. Check the service status:
 
-    ```bash
+```bash
     systemctl status availd.service
-    ```
+```
 <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/service-status.png">
 
-6. View logs while running with the following command:
+#### 7. View logs while running with the following command:
 
-    ```bash
+```bash
     journalctl -f -u availd
-    ```
-7. Remove availd.service to recreate from scratch
+```
+#### 8. Remove availd.service to recreate from scratch
    - Run the command to stop and disable the running service
-   ```bash
+```bash
     systemctl stop availd.service && systemctl disable availd.service
-   ```
+```
    - Delete the service file in systemd
-   ```bash
+```bash
     rm /etc/systemd/system/availd.service
-   ```
+```
    - Reload systemd
-   ```bash
+```bash
     systemctl daemon-reload && systemctl reset-failed 
-   ```
-8. In the event of updating the availd.service file, run the following command to reload the service:
+```
+#### 9. In the event of updating the availd.service file, run the following command to reload the service:
 ```bash
 systemctl daemon-reload
 ```
 ### Part 2: Using Docker on Ubuntu 22.04
 
-1. Install Docker by running the following commands:
+#### 1. Install Docker by running the following commands:
 
 ```bash
 sudo apt-get update &&
@@ -139,12 +145,12 @@ sudo usermod -aG docker $USER &&
 newgrp docker
 ```
 
-2. Run the following command to create data storage for the node:
+#### 2. Run the following command to create data storage for the node:
 ```bash
 mkdir -p $HOME/avail-node/data/keystore &&
 mkdir -p $HOME/avail-node/data/state
 ```
-3. Run the Docker container:
+#### 3. Run the Docker container:
 ```bash
 docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.11.0.0
 ```
@@ -166,9 +172,9 @@ Discord: hiepht
 
 ### Phần 1: Sử dụng Binaries trên Ubuntu 22.04
 
-1. Cài đặt môi trường bằng cách sao chép và thực thi các lệnh dưới đây:
+#### 1. Cài đặt môi trường bằng cách sao chép và thực thi các lệnh dưới đây:
 
-    ```bash
+```bash
     sudo apt-get -y update &&
     sudo apt-get -y install build-essential &&
     sudo apt-get -y install --assume-yes git clang curl libssl-dev protobuf-compiler && 
@@ -178,33 +184,40 @@ Discord: hiepht
     rustup update &&
     rustup update nightly && 
     rustup target add wasm32-unknown-unknown --toolchain nightly
-    ```
+```
 
-2. Xây dựng phiên bản mới nhất của dự án Avail (v1.10.0.0):
+#### 2. Xây dựng phiên bản mới nhất của dự án Avail (v1.11.0.0):
 
-    ```bash
+```bash
     mkdir -p $HOME/avail-node &&
     cd $HOME/avail-node &&
     git clone https://github.com/availproject/avail.git &&
     cd avail &&
     mkdir -p output &&
-    mkdir -p $HOME/avail-node/data &&
+    mkdir -p /mnt/avail-node/data/chains/avail_goldberg_testnet &&
     git checkout v1.11.0.0 &&
     cargo run --locked --release -- --chain goldberg -d ./output
-    ```
-    <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
-    Đợi cho đến khi quá trình chạy hoàn tất, sau đó nhấn Ctrl + C.
+```
 
-3. Tạo dịch vụ hệ thống để khởi động ổn định hơn (**Trước khi tạo service vui lòng đọc hết các lưu ý ở dưới sau đó thao tác với câu lệnh**):
+<img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/build.png">
 
-    ```bash
+**Đợi cho đến khi quá trình chạy hoàn tất, sau đó nhấn Ctrl + C.**
+
+#### 3. Copy snapshot data
+```bash
+    curl -o - -L http://snapshots.staking4all.org/snapshots/avail/latest/avail.tar.lz4 | lz4 -c -d - | tar -x -C /mnt/avail-node/data/chains/avail_goldberg_testnet/
+```
+
+#### 4. Tạo dịch vụ hệ thống để khởi động ổn định hơn (**Trước khi tạo service vui lòng đọc hết các lưu ý ở dưới sau đó thao tác với câu lệnh**):
+
+```bash
     sudo touch /etc/systemd/system/availd.service
     sudo nano /etc/systemd/system/availd.service
-    ```
+```
 
-    Sau đó, dán lệnh sau vào tệp (**Thay đổi [HOME_PATH] ở câu lệnh dưới trước khi paste vào service, vui lòng đọc thêm ở dưới**):
+Sau đó, dán lệnh sau vào tệp (**Thay đổi [HOME_PATH] ở câu lệnh dưới trước khi paste vào service, vui lòng đọc thêm ở dưới**):
 
-    ```
+```bash
     [Unit] 
     Description=Avail Validator
     After=network.target
@@ -212,62 +225,71 @@ Discord: hiepht
 
     [Service] 
     User=root
-    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path [HOME_PATH]/avail-node/data --chain goldberg --port 30333 --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name "mysticwho-node"
+    ExecStart=[HOME_PATH]/avail-node/avail/target/release/data-avail --base-path /mnt/avail-node/data --chain goldberg --port 30333 --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name "mysticwho-node"
     Restart=always 
     RestartSec=120
 
     [Install] 
     WantedBy=multi-user.target
-    ```
+ ```
 
-    **Trong lệnh trên, hãy lưu ý các thông tin sau:**
-    - `[HOME_PATH]` gõ lệnh `$HOME` và copy đường dẫn thay thế vào `[HOME_PATH]` ở trên ví dụ như ảnh dưới thay thế `[HOME_PATH]` thành `/home/tuan` như vậy `[HOME_PATH]/avail-node/avail/target/release/data-avail` sẽ thành `/home/tuan/avail-node/avail/target/release/data-avail`, `[HOME_PATH]/avail-node/data` sẽ thành `/home/tuan/avail-node/data`
+**Trong lệnh trên, hãy lưu ý các thông tin sau:**
+
+- `[HOME_PATH]` gõ lệnh `$HOME` và copy đường dẫn thay thế vào `[HOME_PATH]` ở trên ví dụ như ảnh dưới thay thế `[HOME_PATH]` thành `/home/tuan` như vậy `[HOME_PATH]/avail-node/avail/target/release/data-avail` sẽ thành `/home/tuan/avail-node/avail/target/release/data-avail`, `[HOME_PATH]/avail-node/data` sẽ thành `/home/tuan/avail-node/data`
         
-       <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
+  <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/home.png">
        
-    - `--name` là tên của node.
-    - Các cổng `30333`, `9944`, `9615` cần phải được mở trong tường lửa. Nếu bạn sử dụng VPS, hãy cấu hình cho phép kết nối TCP/UDP qua các cổng này. Nếu bạn sử dụng vps, vui lòng đảm bảo port phải được mở từ phía nhà cung cấp.
+- `--name` là tên của node.
+- Các cổng `30333`, `9944`, `9615` cần phải được mở trong tường lửa. Nếu bạn sử dụng VPS, hãy cấu hình cho phép kết nối TCP/UDP qua các cổng này. Nếu bạn sử dụng vps, vui lòng đảm bảo port phải được mở từ phía nhà cung cấp.
+    
+**Sau khi chỉnh sửa xong, nhấn Ctrl + O và sau đó nhấn Enter, sau đó nhấn Ctrl + X để thoát.**
 
-    Sau khi chỉnh sửa xong, nhấn Ctrl + O và sau đó nhấn Enter, sau đó nhấn Ctrl + X để thoát.
+#### 5. Kích hoạt và khởi động dịch vụ:
 
-5. Kích hoạt và khởi động dịch vụ:
-
-    ```bash
+```bash
     systemctl enable availd.service && systemctl start availd.service
-    ```
+```
 
-6. Kiểm tra trạng thái của dịch vụ:
+#### 6. Kiểm tra trạng thái của dịch vụ:
 
-    ```bash
+```bash
     systemctl status availd.service
-    ```
+```
 <img src="https://github.com/hiephtdev/huong-dan-chay-full-node-avail/blob/main/service-status.png">
 
-6. Xem logs khi chạy bằng lệnh:
+#### 7. Xem logs khi chạy bằng lệnh:
 
-    ```bash
-    journalctl -f -u availd
-    ```
-7. Xóa availd.service để tạo lại từ đầu
-    - Chạy lệnh để stop và disable service đang chạy
-   ```bash
-   systemctl stop availd.service && systemctl disable availd.service
-   ``` 
-    - Xóa file service trong systemd
-   ```bash
-    rm /etc/systemd/system/availd.service
-   ```
-    - Reload systemd
-   ```bash
-    systemctl daemon-reload && systemctl reset-failed
-   ```
-8. Trong trường hợp update lại file availd.service chạy lệnh sau để reload lại service
 ```bash
-systemctl daemon-reload
+    journalctl -f -u availd
+```
+
+#### 8. Xóa availd.service để tạo lại từ đầu
+- Chạy lệnh để stop và disable service đang chạy
+
+```bash
+   systemctl stop availd.service && systemctl disable availd.service
+```
+
+- Xóa file service trong systemd
+
+```bash
+    rm /etc/systemd/system/availd.service
+```
+
+- Reload systemd
+
+```bash
+    systemctl daemon-reload && systemctl reset-failed
+```
+
+#### 9. Trong trường hợp update lại file availd.service chạy lệnh sau để reload lại service
+
+```bash
+    systemctl daemon-reload
 ```
 ### Phần 2: Sử dụng docker trên Ubuntu 22.04
 
-1. Cài đặt docker chạy câu lệnh dưới đây
+#### 1. Cài đặt docker chạy câu lệnh dưới đây
 
 ```bash
 sudo apt-get update &&
@@ -286,12 +308,12 @@ sudo usermod -aG docker $USER &&
 newgrp docker
 ```
 
-2. Run câu lệnh sau để tạo lưu trữ data của node
+#### 2. Run câu lệnh sau để tạo lưu trữ data của node
 ```bash
 mkdir -p $HOME/avail-node/data/keystore &&
 mkdir -p $HOME/avail-node/data/state
 ```
-3. Chạy container
+#### 3. Chạy container
 ```bash
 docker run -v $HOME/avail-node/data/state:/da/state:rw -v $HOME/avail-node/data/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.11.0.0
 ```
