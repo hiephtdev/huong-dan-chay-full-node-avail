@@ -48,6 +48,11 @@ git checkout $AVAIL_TAG
 cargo build --release -p data-avail
 . $HOME/.bash_profile
 sudo cp $HOME/avail/target/release/data-avail /usr/local/bin
+
+# copy snapshot data
+mkdir -p /mnt/avail-node/data/chains/avail_goldberg_testnet
+curl -o - -L http://snapshots.staking4all.org/snapshots/avail/latest/avail.tar.lz4 | lz4 -c -d - | tar -x -C /mnt/avail-node/data/chains/avail_goldberg_testnet/
+
 # create service
 sudo tee /etc/systemd/system/availd.service > /dev/null <<EOF
 [Unit]
@@ -56,7 +61,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$(which data-avail) -d `pwd`/data --chain goldberg --port 30333 --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name $AVAIL_NODE_NAME
+ExecStart=$(which data-avail) -d /mnt/avail-node/data --chain goldberg --port 30333 --rpc-port 9944 --prometheus-port 9615 --prometheus-external --validator --name $AVAIL_NODE_NAME
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
