@@ -6,8 +6,8 @@
 | CPU (amd64/x86 architecture) | 2 core | 	4 core |
 | Storage (SSD) | 20-40 GB | 200-300 GB |
 **OS Recommended Ubuntu 22.04**
-## Update 03/11/2024
-Run Light Node v1.7.9 with one command
+## Update 04/03/2024
+Run Light Node v1.7.10 with one command
 ```bash
 bash <(wget -qO- https://raw.githubusercontent.com/hiephtdev/huong-dan-chay-full-node-avail/main/auto-run-avail-light-node.sh)
 ```
