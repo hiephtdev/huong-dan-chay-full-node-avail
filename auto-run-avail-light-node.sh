@@ -11,11 +11,11 @@ echo -e "\e[0m"
 sleep 2;
 echo -e "\e[1;33m1. Updating packages... \e[0m" && sleep 1
 # update
-sudo apt update && sudo apt upgrade -y
+# sudo apt update && sudo apt upgrade -y
 
-echo -e "\e[1;33m2. Installing dependencies... \e[0m" && sleep 1
+# echo -e "\e[1;33m2. Installing dependencies... \e[0m" && sleep 1
 # packages
-sudo apt install curl tar wget clang pkg-config protobuf-compiler libssl-dev jq build-essential protobuf-compiler bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y
+# sudo apt install curl tar wget clang pkg-config protobuf-compiler libssl-dev jq build-essential protobuf-compiler bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y
 
 read -p "Do you want to enter seed phrase? (y/n): " answer
 
