@@ -17,29 +17,29 @@ echo -e "\e[1;33m1. Updating packages... \e[0m" && sleep 1
 # packages
 # sudo apt install curl tar wget clang pkg-config protobuf-compiler libssl-dev jq build-essential protobuf-compiler bsdmainutils git make ncdu gcc git jq chrony liblz4-tool -y
 
-read -p "Do you want to enter seed phrase? (y/n): " answer
+# read -p "Do you want to enter seed phrase? (y/n): " answer
 
 # Kiểm tra câu trả lời
-if [[ $answer == "y" ]]; then
+# if [[ $answer == "y" ]]; then
     # Hỏi người dùng nhập văn bản
-    read -p "Enter the text: " text
+ #   read -p "Enter the text: " text
 
     # Kiểm tra xem file identity.toml đã tồn tại chưa
-    if [[ -f "identity.toml" ]]; then
-        echo "identity.toml exists. Creating backup..."
-        cp identity.toml identity_backup.toml
-        echo "Backup created as identity_backup.toml"
-        rm identity.toml
-    fi
+ #   if [[ -f "identity.toml" ]]; then
+ #       echo "identity.toml exists. Creating backup..."
+ #       cp identity.toml identity_backup.toml
+ #       echo "Backup created as identity_backup.toml"
+  #      rm identity.toml
+ #   fi
 
     # Ghi văn bản vào file identity.toml
-    echo "avail_secret_seed_phrase = '$text'" > identity.toml
-    echo "\e[1;33mSave seed phrase to identity.toml\e[0m"
-elif [[ $answer == "n" ]]; then
-    echo "\e[1;33mIt will create a new key if it doesn't exist on this machine to identity.toml file\e[0m"
-else
-    echo "\e[31mInvalid input. Please enter 'y' or 'n'.\e[0m"
-fi
+ #   echo "avail_secret_seed_phrase = '$text'" > identity.toml
+#    echo "\e[1;33mSave seed phrase to identity.toml\e[0m"
+# elif [[ $answer == "n" ]]; then
+#    echo "\e[1;33mIt will create a new key if it doesn't exist on this machine to identity.toml file\e[0m"
+# else
+#    echo "\e[31mInvalid input. Please enter 'y' or 'n'.\e[0m"
+#fi
 
 echo -e "\e[1;33m3. Downloading... \e[0m" && sleep 1
 # download binary
