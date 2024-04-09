@@ -236,7 +236,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart="$AVAIL_BIN --config $CONFIG --app-id $APPID --identity $IDENTITY"
+ExecStart=$AVAIL_BIN --config $CONFIG --app-id $APPID --identity $IDENTITY
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
