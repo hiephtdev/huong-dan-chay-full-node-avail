@@ -226,7 +226,6 @@ fi
 
 echo "✅ Availup exited successfully."
 echo "🛠️ Starting Avail."
-trap onexit EXIT
 
 # create service
 sudo tee /etc/systemd/system/availightd.service > /dev/null <<EOF
